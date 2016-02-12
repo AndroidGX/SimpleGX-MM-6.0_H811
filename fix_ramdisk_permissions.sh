@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RAMFS="/home/androidgx/projects/kernels/SimpleGX-MM-6.0_H815/ramdisk"
+RAMFS="/home/androidgx/projects/kernels/SimpleGX-MM-6.0_H811/ramdisk"
 
 chmod -R g-w $RAMFS/*
 chmod g-w $RAMFS/*.rc $RAMFS/default.prop $RAMFS/sbin/*.sh
