@@ -1,0 +1,15 @@
+on early-init
+    insmod /sbin/qcrypto_module.ko
+    insmod /sbin/qdrbg_module.ko
+
+on init
+    start qfintverify
+    exec u:r:setup_fs:s0 -- /sbin/setup_fs_static \
+        /dev/block/bootdevice/by-name/cache \
+        no_reboot
+
+service qfintverify /sbin/qfintverify
+    user root
+    class core
+    seclabel u:r:qfips:s0
+    oneshot
